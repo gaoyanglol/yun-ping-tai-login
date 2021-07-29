@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      background: url(./image/bg.png) no-repeat center;      
+    }
+    .animation {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      left: 30.5%;
+      top: 66%;
+      transform: translate(-50%, -50%) scale(.8);
+      /* perspective: 10000px; */
+    }
+    .box {      
+      width: 500px;
+      height: 500px;
+      position: absolute;     
+      transform: rotateX(60deg);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+    .layer {
+      width: 500px;
+      height: 500px;
+      background: url(./image/c_9.png) no-repeat center;
+      animation: 50s linear forwards infinite rotation;
+    }
+    
+    @keyframes rotation {
+      0% {transform: rotateZ(0);}
+      100% {transform: rotateZ(360deg)}      
+    }
+    @keyframes rotation2 {
+      0% {transform: rotateZ(0)}
+      /* 80% {transform: rotateZ(360deg);} */
+      100% {transform: rotateZ(360deg);}
+    }
+    .box2 {
+      transform: translateY(-13px) rotateX(60deg);
+    }
+    .layer2 {
+      background: url(./image/c_8.png) no-repeat center;
+      animation: 60s linear reverse infinite rotation;
+    }
+    .box3 {
+      transform: translateY(-18px) rotateX(60deg);
+    }
+    .layer3 {
+      background: url(./image/c_7.png) no-repeat center;
+      animation: 5s ease reverse infinite rotation2;
+    }
+    .box4 {
+      transform: translateY(-20px) rotateX(60deg);
+    }
+    .layer4 {
+      background: url(./image/c_6.png) no-repeat center;
+      animation: 40s linear forwards infinite rotation;
+    }
+    .box5 {
+      transform: translateY(-28px) rotateX(60deg);
+    }
+    .layer5 {
+      background: url(./image/c_5.png) no-repeat center;
+      animation: 60s linear forwards infinite rotation;
+    }
+    .box6 {
+      transform: translateY(-29px) rotateX(60deg);
+    }
+    .layer6 {
+      background: url(./image/c_4.png) no-repeat center;
+      animation: 60s linear forwards infinite rotation;
+    }
+    .box7 {
+      transform: translateY(-30px) rotateX(60deg);
+    }
+    .layer7 {
+      background: url(./image/c_3.png) no-repeat center;
+    }
+ 
+    .layer8 {
+      background: url(./image/c_2.png) no-repeat center;
+    }
+
+    .layer9 {
+      background: url(./image/c_1.png) no-repeat center;
+    }
+
+    .layer10 {
+      background: url(./image/c_0.png) no-repeat center;
+    }
+    .light {
+      width: 243px;
+      height: 410px;
+      position: absolute;
+      left: 50%;
+      bottom: 217px;
+      z-index: -1;
+      margin-left: -121.5px;
+      background: url(./image/glow.png) no-repeat center;
+      animation: 3s infinite alternate linear flash2
+    }
+    @keyframes flash {
+      0% {opacity: .6;}
+      95% {opacity: 1;}
+      97.5% {opacity: .7;}
+      100% {opacity: 1;}
+    }
+    @keyframes flash2 {
+      0% {opacity: .6;}
+      100% {opacity: 1;}
+    }
+    .light2 {
+      width: 145px;
+      height: 381px;
+      background: url(./image/glow_i.png) no-repeat center;
+      margin-left: -72.5px;
+      z-index: 1;
+      bottom: 240px;
+      animation: 3s infinite alternate linear flash
+    }
+    .circuit {
+      width: 288px;
+      height: 263px;
+      position: absolute;
+      left: 50%;
+      bottom: 300px;
+      margin-left: -144px;
+      background: url(./image/circuit.png) no-repeat center;
+    }
+    .spot {
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      background: url(./image/spot.png) no-repeat center;
+      animation: 8s linear infinite forwards lifting;
+    }
+    @keyframes lifting {
+      0% {opacity: 0}
+      30% {opacity: 1}
+      70% {opacity: 1}
+      100% {top: -100px;opacity: 0}
+    }
+
+/* cubic */
+
+.cubic {
+      position: absolute;
+      left: 50%;
+      top: -20%;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+      transform: translate(-50%, -50%) scale(.25);
+    }
+    .wrap {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      left: 50%;
+      top: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+      animation: 10s linear infinite rotate;
+      transform-style: preserve-3d;
+    }
+
+  
+    .cube {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes rotate {
+      0% {transform: rotateX(0) rotateY(0);}
+      100% {transform: rotateX(360deg) rotateY(360deg);}      
+    }
+
+    .plane {
+      position: absolute;
+      background: linear-gradient(45deg, #5DCFFC, #4db8e2 );
+      box-shadow: 0 0 30px rgba(93, 207, 252, .5);
+      opacity: .7;
+    }
+    .plane-1 {
+      transform: translateZ(50px);
+      /* animation: 1s linear forwards dash; */
+    }
+    .plane-2 {
+      transform: translateZ(-50px);
+      /* animation: 1s linear 4s forwards dash; */
+    }
+    .plane-3 {
+      transform: rotateY(90deg) translateZ(50px);
+      /* animation: 1s linear 3s forwards dash; */
+    }
+    .plane-4 {
+      transform: rotateY(90deg) translateZ(-50px);
+      /* animation: 1s linear 1s forwards dash; */
+    }
+    .plane-5 {
+      transform: rotateX(90deg) translateZ(-50px);
+      /* animation: 1s linear 2s forwards dash; */
+    }
+    .plane-6 {                  /* 965165431@qq.com */
+      transform: rotateX(90deg) translateZ(50px);
+      /* animation: 1s linear 5s forwards dash; */
+    }
+    @keyframes dash {
+      to {stroke-dashoffset: 0;}
+    }
+    .shell {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border: 30px solid #1B62D0;
+      left: 50%;
+      top: 50%;
+      background: rgba(93, 207, 252, .25);
+      transform: translate(-50%, -50%) translateZ(230px);
+      backface-visibility: visible;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="animation">
+    <div class="cubic">
+      <div class="wrap">
+        <div class="shell"></div>
+        <div class="shell" style="transform: translate(-50%, -50%) translateZ(-230px);"></div>
+        <div class="shell" style="transform: translate(-50%, -50%) rotateY(90deg) translateZ(-230px);"></div>
+        <div class="shell" style="transform: translate(-50%, -50%) rotateY(-90deg) translateZ(-230px);"></div>
+        <div class="shell" style="transform: translate(-50%, -50%) rotateX(-90deg) translateZ(-230px);"></div>
+        <div class="shell" style="transform: translate(-50%, -50%) rotateX(90deg) translateZ(-230px);"></div>
+        <div class="cube">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateY(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateY(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateZ(-125px) translateY(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(-125px) translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateY(-125px) translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateY(-125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateZ(125px) translateY(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(-125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(-125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateY(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateY(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateZ(-125px) translateY(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(125px) translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateY(125px) translateZ(-125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(125px) translateY(125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateZ(125px) translateY(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>
+        <div class="cube" style="transform: translateX(-125px) translateY(125px) translateZ(125px)">
+          <svg class="plane plane-1" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-2" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-3" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-4" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-5" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+          <svg class="plane plane-6" viewBox="0 0 200 200" stroke-dasharray="800" stroke-dashoffset="0">
+            <rect width="200" height="200" fill="none" stroke="none" stroke-width="3"></rect>
+          </svg>
+        </div>        
+      </div>
+    </div>
+    <div class="box">
+      <div class="layer"></div>
+    </div>
+    <div class="box box2">
+      <div class="layer layer2"></div>
+    </div>
+    <div class="box box3">
+      <div class="layer layer3"></div>
+    </div>
+    <div class="box box4">
+      <div class="layer layer4"></div>
+    </div>
+    <div class="box box5">
+      <div class="layer layer5"></div>
+    </div>
+    <div class="box box6">
+      <div class="layer layer6"></div>
+    </div>
+    <div class="box box7">
+      <div class="layer layer7"></div>
+    </div>
+    <div class="box box7">
+      <div class="layer layer8"></div>
+    </div>
+    <div class="box box7">
+      <div class="layer layer9"></div>
+    </div>
+    <div class="box box7">
+      <div class="layer layer10"></div>
+    </div>
+    <div class="light"></div>
+    <div class="light light2"></div>
+    <div class="circuit"></div>
+    <div class="spot" style="left: 140px; top: 190px;"></div>
+    <div class="spot" style="left: 220px; top: 180px; transform: scale(.5);animation-delay: 1s;"></div>
+    <div class="spot" style="left: 250px; top: 210px; transform: scale(.8);animation-delay: 4s;"></div>
+    <div class="spot" style="left: 175px; top: 230px; transform: scale(1);animation-delay: 2s;"></div>
+    <div class="spot" style="left: 270px; top: 210px; transform: scale(.3);animation-delay: 3s;"></div>
+    <div class="spot" style="left: 300px; top: 250px; transform: scale(.7);animation-delay: 4s;"></div>
+    <div class="spot" style="left: 280px; top: 230px; transform: scale(.2);animation-delay: 5s;"></div>
+    <div class="spot" style="left: 210px; top: 240px; transform: scale(.3);animation-delay: 2s;"></div>
+    <div class="spot" style="left: 190px; top: 240px; transform: scale(.3);animation-delay: 2.5s;"></div>
+    <div class="spot" style="left: 233px; top: 260px; transform: scale(.9);animation-delay: 5s;"></div>
+  </div>
+</body>
+</html>
